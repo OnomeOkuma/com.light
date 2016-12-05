@@ -8,11 +8,21 @@ and open the template in the editor.
 <html xmlns="http://www.w3.org/1999/xhtml"
              xmlns:h="http://xmlns.jcp.org/jsf/html"
              xmlns:bnu="http://bootsfaces.net/ui">
-    <head>
-        <title>TODO supply a title</title>
+    <h:head>
+        <title>Light.com - Processing pin</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    </head>
-    <body>
-        <div>TODO write content</div>
-    </body>
+        <meta name="description" content="Click on the button below to generate the pin"/>
+    </h:head>
+    
+    <h:body>
+          <bnu:navBar brand="Light.com"  position="top" sticky="true"
+                    brand-align="right" inverse="true">
+                   <bnu:navbarLinks pull="right">
+                       <bnu:navLink value="about us" action="about-us"/>
+                   </bnu:navbarLinks>
+        </bnu:navBar>
+
+        
+        
+    </h:body>
 </html>

@@ -1,18 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
+Homepage xhtml file.
 -->
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
              xmlns:h="http://xmlns.jcp.org/jsf/html"
              xmlns:bnu="http://bootsfaces.net/ui">
-    <head>
-        <title>TODO supply a title</title>
+    <h:head>
+        <title>Light.com - Buy PHCN Prepaid meter cards here</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    </head>
-    <body>
-        <div>TODO write content</div>
-    </body>
+        <meta name="description" content="Buy your BEDC prepaid meter cards online. Pay for and generate your Prepaid cards at the comfort of your home."/>
+    </h:head>
+    
+    <h:body>
+        <bnu:navBar brand="Light.com"  position="top" sticky="true"
+                    brand-align="right" inverse="true">
+                   <bnu:navbarLinks pull="right">
+                       <bnu:navLink value="about us" action="about-us"/>
+                   </bnu:navbarLinks>
+        </bnu:navBar>
+        
+        <h:form>
+            <bnu:container>
+                <bnu:label text="Meter Number" severity="info"/>
+                <bnu:inputText inline="true" placeholder="meter number"/>
+            </bnu:container> 
+         </h:form>   
+        
+    </h:body>
 </html>
