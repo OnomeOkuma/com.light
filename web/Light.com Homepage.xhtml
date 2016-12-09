@@ -5,6 +5,7 @@ Homepage xhtml file.
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
              xmlns:h="http://xmlns.jcp.org/jsf/html"
+              xmlns:f="http://java.sun.com/jsf/core"
              xmlns:bnu="http://bootsfaces.net/ui">
     <h:head>
         <title>Light.com - Buy PHCN Prepaid meter cards here</title>
@@ -13,19 +14,94 @@ Homepage xhtml file.
     </h:head>
     
     <h:body>
-        <bnu:navBar brand="Light.com"  position="top" sticky="true"
+        <h:form>
+            <!-- 
+                  Navigation bar JSF tags
+            -->
+            <bnu:navBar brand="Light.com"  position="top" sticky="false"
                     brand-align="right" inverse="true">
                    <bnu:navbarLinks pull="right">
+                       <bnu:navLink value="Purchase" action="" />
                        <bnu:navLink value="about us" action="about-us"/>
                    </bnu:navbarLinks>
-        </bnu:navBar>
-        
-        <h:form>
+            </bnu:navBar>
+              
+            <!-- 
+            Container holding an empty jumbotron. Used to center the form components at the center of the page.
+            -->
             <bnu:container>
-                <bnu:label text="Meter Number" severity="info"/>
-                <bnu:inputText inline="true" placeholder="meter number"/>
-            </bnu:container> 
-         </h:form>   
-        
+            <bnu:jumbotron rendered="true" >
+                
+            </bnu:jumbotron>
+                </bnu:container>
+            
+            <!-- 
+            Container holding the components need to take in customer details.
+            It is divided as such
+            *row
+                  *column
+                   *column
+            *row
+            with the columns holding the components in each role.
+            -->
+                <bnu:container fluid="true" >
+                    
+                <bnu:row>
+                    <bnu:column large-screen="2" offset="3">
+                        <h:outputLabel value="Meter Number:" />
+                    </bnu:column>
+                    
+                    <bnu:column large-screen="3" medium-screen="2" small-screen="2">
+                        <bnu:inputText placeholder="Meter No" field-size="15" required="true" required-message="Meter number required for transaction"/>
+                        </bnu:column>
+                </bnu:row>
+                
+                <bnu:row>
+                    <bnu:column large-screen="2" offset="3">
+                        <h:outputLabel value="Phone Number:"/>
+                    </bnu:column>
+                    
+                    <bnu:column large-screen="3" medium-screen="2" small-screen="2">
+                        <bnu:inputText placeholder="Phone No" field-size="15"  required="true" required-message="Phone number required for transaction">
+                              <f:facet name="prepend">
+                              <bnu:icon name="phone" />
+                              </f:facet>
+                          </bnu:inputText>
+                      </bnu:column>    
+                </bnu:row>
+                
+                    
+                    
+                <bnu:row>
+                    <bnu:column large-screen="2" offset="3">
+                        <h:outputLabel value="Email Address or Name:"/>
+                    </bnu:column>
+                    
+                    <bnu:column large-screen="3" medium-screen="2" small-screen="2">
+                        <bnu:inputText  placeholder="Email or Name" field-size="15" required="true" requiredMessage="Email address or Name required for transaction">
+                              <f:facet name="prepend">
+                              <bnu:icon name="user" />
+                              </f:facet>
+                          </bnu:inputText>
+                    </bnu:column>
+                </bnu:row>
+                
+                <bnu:row>
+                    <bnu:column large-screen="2" offset="3">
+                        <h:outputLabel value="Amount:"/>
+                    </bnu:column>
+                    
+                    <bnu:column large-screen="3" medium-screen="2" small-screen="3">
+                        <bnu:inputText  placeholder="Amount" field-size="15" required="true" requiredMessage="Amount required"/>
+                    </bnu:column> 
+                </bnu:row>
+            
+                <bnu:row >
+                    <bnu:column large-screen="2" medium-screen="2" small-screen="2" offset="3">
+                        <bnu:button value="Submit" offset="8" tooltip="process transaction" look="success"/>
+                    </bnu:column>
+                </bnu:row>    
+            </bnu:container>
+        </h:form>
     </h:body>
 </html>
