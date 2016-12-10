@@ -28,28 +28,28 @@ public class InfoBean implements Serializable {
      */
     public InfoBean() {
     }
-    public String getmeter_number(){
+    public String getMeter_number(){
         return this.meter_number;
     }
-    public void setmeter_number(String meter_number){
+    public void setMeter_number(String meter_number){
         this.meter_number = meter_number;
     }
-    public String getphone_number(){
+    public String getPhone_number(){
         return this.phone_number;
     }
-    public void setphone_number(String phone_number){
+    public void setPhone_number(String phone_number){
         this.phone_number = phone_number;
     }
-    public String getemail_or_name(){
+    public String getEmail_or_name(){
         return this.email_or_name;
     }
-    public void setemail_or_name(String email_or_name){
+    public void setEmail_or_name(String email_or_name){
         this.email_or_name = email_or_name;
     }
-    public String getamount(){
+    public String getAmount(){
         return this.amount;
     }
-    public void setamount(String amount){
+    public void setAmount(String amount){
         this.amount = amount;
     }
 }
