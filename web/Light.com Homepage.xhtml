@@ -42,7 +42,7 @@ Homepage xhtml file.
                   *column
                    *column
             *row
-            with the columns holding the components in each role.
+            with the columns holding the components in each row.
             -->
                 <bnu:container fluid="true" >
                     
@@ -52,7 +52,7 @@ Homepage xhtml file.
                     </bnu:column>
                     
                     <bnu:column large-screen="3" medium-screen="2" small-screen="2">
-                        <bnu:inputText placeholder="Meter No" field-size="15" required="true" required-message="Meter number required for transaction"/>
+                        <bnu:inputText placeholder="Meter No" field-size="15" required="true" required-message="Meter number required for transaction" value="#{processorBean.Information.meter_number}"/>
                         </bnu:column>
                 </bnu:row>
                 
@@ -62,7 +62,7 @@ Homepage xhtml file.
                     </bnu:column>
                     
                     <bnu:column large-screen="3" medium-screen="2" small-screen="2">
-                        <bnu:inputText placeholder="Phone No" field-size="15"  required="true" required-message="Phone number required for transaction">
+                        <bnu:inputText placeholder="Phone No" field-size="15"  required="true" required-message="Phone number required for transaction" value="#{processorBean.Information.phone_number}">
                               <f:facet name="prepend">
                               <bnu:icon name="phone" />
                               </f:facet>
@@ -78,7 +78,7 @@ Homepage xhtml file.
                     </bnu:column>
                     
                     <bnu:column large-screen="3" medium-screen="2" small-screen="2">
-                        <bnu:inputText  placeholder="Email or Name" field-size="15" required="true" requiredMessage="Email address or Name required for transaction">
+                        <bnu:inputText  placeholder="Email or Name" field-size="15" required="true" requiredMessage="Email address or Name required for transaction" value="#{processorBean.Information.email_or_number}">
                               <f:facet name="prepend">
                               <bnu:icon name="user" />
                               </f:facet>
@@ -92,7 +92,7 @@ Homepage xhtml file.
                     </bnu:column>
                     
                     <bnu:column large-screen="3" medium-screen="2" small-screen="3">
-                        <bnu:inputText  placeholder="Amount" field-size="15" required="true" requiredMessage="Amount required"/>
+                        <bnu:inputText  placeholder="Amount" field-size="15" required="true" requiredMessage="Amount required" value="#{processorBean.Information.amount}"/>
                     </bnu:column> 
                 </bnu:row>
             
@@ -102,6 +102,9 @@ Homepage xhtml file.
                     </bnu:column>
                 </bnu:row>    
             </bnu:container>
+            
+            
+            
         </h:form>
     </h:body>
 </html>
