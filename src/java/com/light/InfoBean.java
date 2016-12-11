@@ -1,14 +1,12 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/*This is the Bean used to handle the information provided by the user
  */
 package com.light;
 
 import javax.inject.Named;
-import javax.enterprise.context.SessionScoped;
 import javax.enterprise.inject.Default;
 import java.io.Serializable;
+import javax.enterprise.context.RequestScoped;
+//import javax.enterprise.context.SessionScoped;
 
 /**
  *
@@ -16,7 +14,7 @@ import java.io.Serializable;
  */
 @Default
 @Named(value = "infoBean")
-@SessionScoped
+@RequestScoped
 public class InfoBean implements Serializable {
         
     private String meter_number;
@@ -28,6 +26,7 @@ public class InfoBean implements Serializable {
      */
     public InfoBean() {
     }
+    //Getter and Setter methods for the private variables
     public String getMeter_number(){
         return this.meter_number;
     }
