@@ -7,8 +7,9 @@ package com.light;
 
 import java.io.IOException;
 import java.io.InputStream;
-import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
+import java.time.Clock;
+import javax.faces.bean.ManagedBean;
 import javax.inject.Inject;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
@@ -25,13 +26,16 @@ import javax.json.Json;
 import javax.json.JsonObject;
 import javax.json.JsonReader;
 import javax.json.JsonString;
+import com.amazonaws.services.sns.AmazonSNSClient;
+import com.amazonaws.services.sns.model.PublishRequest;
+import com.amazonaws.services.sns.model.PublishResult;
 
 /**
  *
  * @author onome
  */
 @Named(value = "processorBean")
-@SessionScoped
+@ManagedBean
 public class ProcessorBean implements Serializable {
      /*All the objects needed for processing the request.
          declared with the private final qualifier to keep with the OO
@@ -42,7 +46,7 @@ public class ProcessorBean implements Serializable {
     private final MultivaluedHashMap<String,String> form = new MultivaluedHashMap();
     private final MultivaluedMap<String,Object> https_head = new MultivaluedHashMap();
     private Response payresponse;
-    
+    private final  AmazonSNSClient messagesender = new AmazonSNSClient();
     //CDI bean injected here to manage the information provided by the user
     private @Inject InfoBean information;
     //getter method
@@ -67,6 +71,9 @@ public class ProcessorBean implements Serializable {
                                                       .headers(https_head)
                                                       .post(Entity.entity(form, MediaType.APPLICATION_FORM_URLENCODED));
                        System.out.println(payresponse.getStatus());
+                       System.out.println(payresponse.toString());
+                       System.out.println(information.getEmail_or_name());
+                       System.out.println(Clock.systemUTC());
                        
                         if (payresponse.getStatus() == 200){
                                  JsonReader reader = Json.createReader(payresponse.readEntity(InputStream.class));
@@ -87,5 +94,11 @@ public class ProcessorBean implements Serializable {
                         }
                                  
                         }
+    public void generatepin(){
+                        PublishResult result = messagesender.publish(new PublishRequest()
+                                                                                   .withMessage("This is the pin 12334213322113")
+                                                                                   .withPhoneNumber("+234" + information.getPhone_number().substring(1)));
+                        System.out.println(result.getMessageId());
+        }
     }
 
