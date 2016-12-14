@@ -6,6 +6,7 @@ import javax.inject.Named;
 import javax.enterprise.inject.Default;
 import java.io.Serializable;
 import javax.enterprise.context.SessionScoped;
+import javax.faces.bean.ManagedBean;
 //import javax.faces.bean.ManagedBean;
 
 /**
@@ -14,7 +15,7 @@ import javax.enterprise.context.SessionScoped;
  */
 @Default
 @Named(value = "infoBean")
-//@ManagedBean
+@ManagedBean
 @SessionScoped
 public class InfoBean implements Serializable {
         

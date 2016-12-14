@@ -66,9 +66,13 @@ public class ProcessorBean implements Serializable {
     
     //Function for preparing and rendering the payment page.
     public void preparepaymentpage(){
+        
+                       //necessary information needed for the POST request.
                        form.add("amount", information.getAmount());
                        form.add("email", information.getEmail_or_name());
                        https_head.add("Authorization","Bearer sk_test_d97f963ffb78901675cb6d7c48497236e5101884");
+                       
+                       //The Request sent and Response received in one line.
                        payresponse = paytarget.request(MediaType.APPLICATION_JSON)
                                                       .headers(https_head)
                                                       .post(Entity.entity(form, MediaType.APPLICATION_FORM_URLENCODED));
@@ -77,6 +81,7 @@ public class ProcessorBean implements Serializable {
                        System.out.println(information.getEmail_or_name());
                        System.out.println(Clock.systemUTC());
                        
+                    
                         if (payresponse.getStatus() == 200){
                                  JsonReader reader = Json.createReader(payresponse.readEntity(InputStream.class));
                                  JsonObject object = reader.readObject();
@@ -96,6 +101,8 @@ public class ProcessorBean implements Serializable {
                         }
                                  
                         }
+    
+    //Function for generating te utility pin
     public void generatepin(){
                         PublishResult result = messagesender.publish(new PublishRequest()
                                                                                    .withMessage("This is the pin 12334213322113")
@@ -103,7 +110,7 @@ public class ProcessorBean implements Serializable {
                         System.out.println(result.getMessageId());
                         ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
         try {
-            externalContext.redirect("about-us");
+            externalContext.redirect("about-us.xhtml");
         } catch (IOException ex) {
             Logger.getLogger(ProcessorBean.class.getName()).log(Level.SEVERE, null, ex);
         }
