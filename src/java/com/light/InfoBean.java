@@ -5,8 +5,8 @@ package com.light;
 import javax.inject.Named;
 import javax.enterprise.inject.Default;
 import java.io.Serializable;
-import javax.enterprise.context.RequestScoped;
-//import javax.enterprise.context.SessionScoped;
+import javax.enterprise.context.SessionScoped;
+//import javax.faces.bean.ManagedBean;
 
 /**
  *
@@ -14,7 +14,8 @@ import javax.enterprise.context.RequestScoped;
  */
 @Default
 @Named(value = "infoBean")
-@RequestScoped
+//@ManagedBean
+@SessionScoped
 public class InfoBean implements Serializable {
         
     private String meter_number;

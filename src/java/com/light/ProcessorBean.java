@@ -29,6 +29,8 @@ import javax.json.JsonString;
 import com.amazonaws.services.sns.AmazonSNSClient;
 import com.amazonaws.services.sns.model.PublishRequest;
 import com.amazonaws.services.sns.model.PublishResult;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -99,6 +101,12 @@ public class ProcessorBean implements Serializable {
                                                                                    .withMessage("This is the pin 12334213322113")
                                                                                    .withPhoneNumber("+234" + information.getPhone_number().substring(1)));
                         System.out.println(result.getMessageId());
+                        ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
+        try {
+            externalContext.redirect("about-us");
+        } catch (IOException ex) {
+            Logger.getLogger(ProcessorBean.class.getName()).log(Level.SEVERE, null, ex);
+        }
         }
     }
 

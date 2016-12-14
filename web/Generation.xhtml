@@ -15,6 +15,7 @@ and open the template in the editor.
     </h:head>
     
     <h:body>
+        <h:form>  
           <bnu:navBar brand="Light.com"  position="top" sticky="true"
                     brand-align="right" inverse="true">
                    <bnu:navbarLinks pull="right">
@@ -22,15 +23,20 @@ and open the template in the editor.
                    </bnu:navbarLinks>
         </bnu:navBar>
         
-        
-        <h:form>
-            <bnu:container >
-                <bnu:row>
-                    <bnu:column>
-                        <bnu:commandButton value="Click to get Pin" offset="3" col-lg="4" action="#{processorBean.generatepin()}" look="primary"/>
-                    </bnu:column>
-                </bnu:row>
+            <bnu:container fluid="true">
+                <bnu:jumbotron>
+                    
+                </bnu:jumbotron>
             </bnu:container>
+        
+    
+            <bnu:container fluid="true"> 
+                <bnu:row>
+                        <bnu:column col-lg="4" offset="3">
+                            <bnu:commandButton look="success" value="TESTING" action="#{processorBean.generatepin()}"/>
+                           </bnu:column>
+                </bnu:row>
+           </bnu:container>
         </h:form>
     </h:body>
 </html>
