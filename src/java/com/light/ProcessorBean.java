@@ -97,7 +97,12 @@ public class ProcessorBean implements Serializable {
                                     }
                          }
                         else{
-             
+                                    ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
+                                    try {
+                                externalContext.redirect("Error.xhtml");
+                         } catch (IOException ex) {
+                            System.err.printf("invalid link", ex.getMessage());
+                                    }
                         }
                                  
                         }
@@ -110,7 +115,7 @@ public class ProcessorBean implements Serializable {
                         System.out.println(result.getMessageId());
                         ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
         try {
-            externalContext.redirect("about-us.xhtml");
+            externalContext.redirect("Presentation.xhtml");
         } catch (IOException ex) {
             Logger.getLogger(ProcessorBean.class.getName()).log(Level.SEVERE, null, ex);
         }

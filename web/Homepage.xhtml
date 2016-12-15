@@ -14,15 +14,15 @@ Homepage xhtml file.
     </h:head>
     
     <h:body>
-        <h:form>
+        <bnu:form>
             <!-- 
                   Navigation bar JSF tags
             -->
             <bnu:navBar brand="Light.com"  position="top" sticky="false"
                     brand-align="right" inverse="true">
                    <bnu:navbarLinks pull="right">
-                       <bnu:navLink value="Purchase" action="" />
-                       <bnu:navLink value="about us" action="about-us"/>
+                       <bnu:navLink value="Home" href="faces/Homepage.xhtml"/>
+                       <bnu:navLink value="about us" href="faces/about-us.xhtml"/>
                    </bnu:navbarLinks>
             </bnu:navBar>
               
@@ -62,7 +62,7 @@ Homepage xhtml file.
                     </bnu:column>
                     
                     <bnu:column large-screen="3" medium-screen="2" small-screen="2">
-                        <bnu:inputText placeholder="Phone No" field-size="15"  required="true" required-message="Phone number required for transaction" value="#{processorBean.information.phone_number}">
+                        <bnu:inputText placeholder="Phone No" field-size="15"  required="true" required-message="Phone number required for transaction" value="#{processorBean.information.phone_number}" >
                               <f:facet name="prepend">
                               <bnu:icon name="phone" />
                               </f:facet>
@@ -97,7 +97,7 @@ Homepage xhtml file.
                 </bnu:row>
             
                 <bnu:row >
-                    <bnu:column large-screen="2" medium-screen="2" small-screen="2" offset="3">
+                    <bnu:column large-screen="2" medium-screen="2" small-screen="2" offset="4">
                         <bnu:commandButton value="Submit" action="#{processorBean.preparepaymentpage()}" look="success"/>
                     </bnu:column>
                 </bnu:row>    
@@ -105,6 +105,6 @@ Homepage xhtml file.
             
             
             
-        </h:form>
+        </bnu:form>
     </h:body>
 </html>

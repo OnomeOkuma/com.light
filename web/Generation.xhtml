@@ -1,42 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
+Pin Generation xhtml file.
 -->
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
              xmlns:h="http://xmlns.jcp.org/jsf/html"
              xmlns:bnu="http://bootsfaces.net/ui">
     <h:head>
-        <title>Light.com - Success</title>
+        <title>Light.com - Generate Pin</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-        <meta name="description" content="BEDC prepaid meter pin has been generate. thanks for using our services."/>
+        <meta name="description" content="Payment has been processed. Click the button below to generate pin."/>
     </h:head>
     
     <h:body>
-        <h:form>  
+         
+        
+        
+        
+        
           <bnu:navBar brand="Light.com"  position="top" sticky="true"
                     brand-align="right" inverse="true">
                    <bnu:navbarLinks pull="right">
-                       <bnu:navLink value="about us" action="about-us"/>
+                       <bnu:navLink value="Home" href="faces/Homepage.xhtml"/>
+                       <bnu:navLink value="about us" href="faces/about-us.xhtml"/>
                    </bnu:navbarLinks>
         </bnu:navBar>
-        
-            <bnu:container fluid="true">
-                <bnu:jumbotron>
+            
+        <bnu:form> 
+            <bnu:container >
+                <bnu:jumbotron rendered="true"> 
+                    
                     
                 </bnu:jumbotron>
             </bnu:container>
-        
-    
+            
             <bnu:container fluid="true"> 
                 <bnu:row>
                         <bnu:column col-lg="4" offset="3">
-                            <bnu:commandButton look="success" value="TESTING" action="#{processorBean.generatepin()}"/>
+                            <h3>Click the button below to process pin</h3> 
+                            <bnu:commandButton look="success" value="Generate Pin" action="#{processorBean.generatepin()}"/>
                            </bnu:column>
                 </bnu:row>
            </bnu:container>
-        </h:form>
+        </bnu:form>
     </h:body>
 </html>
