@@ -83,6 +83,7 @@ public class ProcessorBean implements Serializable {
                        
                     
                         if (payresponse.getStatus() == 200){
+                            //Extraction of payment link sent from paystack.com
                                  JsonReader reader = Json.createReader(payresponse.readEntity(InputStream.class));
                                  JsonObject object = reader.readObject();
                                   reader.close();
@@ -96,6 +97,7 @@ public class ProcessorBean implements Serializable {
                             System.err.printf("invalid link", ex.getMessage());
                                     }
                          }
+                        //Redirects to the Error page if there is a problem with the information given.
                         else{
                                     ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
                                     try {
